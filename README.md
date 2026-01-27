@@ -21,7 +21,7 @@ However the math just was not mathing! I was reading too slowly from the SD card
 
 Then a great suggestion from a very smart person lead me to realize that I could rewire the existing PS/2 Keyboard hardware Ben uses and also wire in a couple left over AND gates from Ben’s VGA interface to allow much faster reads from the SD card. 
 
-![Fast SD HW](https://raw.githubusercontent.com/Fifty1Ford/BE6502-Fast-SD-Card-Interface/blob/main/Schematic_PulseGenShift_2026-01-27.png)
+![Fast SD HW](https://github.com/NormalLuser/BE6502-Fast-SD-Card-Interface/blob/main/Schematic_PulseGenShift_2026-01-27.png)
 
 What I ended up doing was using one 74HC595 from the keyboard hardware and connected it to one of the VIA 8 bit parallel ports. This was easy. The tricky part was figuring out how to use other 74HC595 as a ‘Pulse Generator’.
 VIA Port A is setup to pulse the VIA CA2 pin each time it is read. This is inverted using the 74HC14 from the keyboard hardware and fed into an unused 74CHT08 AND gate from the VGA hardware along with the system clock. This is then fed to the clock input of the ‘Pulse Generator’ 74HC595. This is setup so that the serial input is tied high, and the QA/bit 0 output feeds back to the AND gate CA2 is connected to, keeping the Pulse generator input clock going.
