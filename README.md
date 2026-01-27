@@ -19,7 +19,11 @@ For my Bad Apple! Demo Version 2.0 I want to use the PCM audio out of the VIA se
 However the math just was not mathing! I was reading too slowly from the SD card. Even with a very fast ‘bit-bang’ routine it was taking over 40 CPU cycles per byte to shift in the data. There just was not enough cycles/SD card transfer speed to do both the video and PCM audio, even at a very low 1,990 bytes/15,920 1 bit samples a second and still keep the 30fps video.
 
 
-Then a great suggestion from a very smart person lead me to realize that I could rewire the existing PS/2 Keyboard hardware Ben uses and also wire in a couple left over AND gates from Ben’s VGA interface to allow much faster reads from the SD card. What I ended up doing was using one 74HC595 from the keyboard hardware and connected it to one of the VIA 8 bit parallel ports. This was easy. The tricky part was figuring out how to use other 74HC595 as a ‘Pulse Generator’.
+Then a great suggestion from a very smart person lead me to realize that I could rewire the existing PS/2 Keyboard hardware Ben uses and also wire in a couple left over AND gates from Ben’s VGA interface to allow much faster reads from the SD card. 
+
+![Fast SD HW](https://raw.githubusercontent.com/NormalLuser/BE6502-Fast-SD-Card-Interface/blob/main/Schematic_PulseGenShift_2026-01-27.png)
+
+What I ended up doing was using one 74HC595 from the keyboard hardware and connected it to one of the VIA 8 bit parallel ports. This was easy. The tricky part was figuring out how to use other 74HC595 as a ‘Pulse Generator’.
 VIA Port A is setup to pulse the VIA CA2 pin each time it is read. This is inverted using the 74HC14 from the keyboard hardware and fed into an unused 74CHT08 AND gate from the VGA hardware along with the system clock. This is then fed to the clock input of the ‘Pulse Generator’ 74HC595. This is setup so that the serial input is tied high, and the QA/bit 0 output feeds back to the AND gate CA2 is connected to, keeping the Pulse generator input clock going.
 QA/bit 0 is also connected to another unused AND gate along with the system clock. The output of this is cleaned up with resistors and a couple more Schmitt inverter gates from the keyboard hardware and sent along to the SD card clock and the other 74HC595 shift register. This is what clocks in the bits. Cleaning up this signal was key and took the most experimentation.
 
