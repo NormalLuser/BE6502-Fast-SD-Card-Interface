@@ -2,7 +2,7 @@
 A couple of shift registers from the PS/2 keyboard interface and unused gates from the Worlds Worst Video Card interface are wired up to allow very fast SD card data transfers on a Ben Eater 6502 breadboard computer.
 
 
-[![Ben Eater Bugs Bunny](https://youtube.com/watch?v=SmlsHpDFhQs)](https://www.youtube.com/watch?v=SmlsHpDFhQs)
+[![Ben Eater Bugs Bunny](https://img.youtube.com)](https://www.youtube.com/watch?v=SmlsHpDFhQs)
 
 
 Greetings fellow 8 Bit Music Lovers!
