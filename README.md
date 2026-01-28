@@ -36,10 +36,13 @@ Testing shows that 2 clock cycles are needed after each shift operation at 5Mhz 
 
 
 For instance, I have an unrolled ROM based routine that can transfer bytes to the screen buffer at just 12 cycles per byte by doing this:
- LDA VIA_PORTA  ; 4 cycles 3 bytes
- STA (Screen),Y ; 6 cycles 2 bytes
- INY            ; 2 cycles 1 byte
 
+ LDA VIA_PORTA  ; 4 cycles 3 bytes
+ 
+ STA (Screen),Y ; 6 cycles 2 bytes
+ 
+ INY            ; 2 cycles 1 byte
+ 
 
 This setup works with my system clocked at 5mhz, and it should work at slower clock speeds as well.
 There are also some resistors and diodes used to allow VIA_PORTB to be connected to the SD card. This allows for the slow speed initialization required by SD cards and to send commands or data to the card. Once initialized all reads are done by simply reading a full byte on VIA_PORTA.
@@ -56,6 +59,7 @@ This allows hard-coded routines to toss the CRC/pre-charge bytes after each 512 
 Since I don’t need to do anything with these CRC bytes I can use the full speed of this hardware by cycle counting:
 
 ;  LDA (VIA_PORTA_Ind) ; 5 cycles byte 1
+
 ;  LDA (DummyZP)       ; 5 cycles delay for Pulse Generator circuit to shift out pulse x8 and reset.
 
 Taking only 10 CPU cycles for each byte. 8 to shift the byte and 2 to reset the Pulse Generator.
