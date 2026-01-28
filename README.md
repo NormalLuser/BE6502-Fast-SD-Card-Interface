@@ -2,6 +2,9 @@
 A couple of shift registers from the PS/2 keyboard interface and unused gates from the Worlds Worst Video Card interface are wired up to allow very fast SD card data transfers on a Ben Eater 6502 breadboard computer.
 
 
+[![Ben Eater Bugs Bunny](https://youtube.com/watch?v=SmlsHpDFhQs)](https://www.youtube.com/watch?v=SmlsHpDFhQs)
+
+
 Greetings fellow 8 Bit Music Lovers!
 I hope you enjoy this Merrie little bit of Melodic 8 Bit Ben Eater Bugs Bunny!
 It’s A Corny Concerto, a Public Domain Fantasia parody cartoon from 1943, and includes, along with Bugs Bunny, Elmer Fudd, Porky Pig, and a young Daffy Duck. https://en.wikipedia.org/wiki/A_Corny_Concerto
