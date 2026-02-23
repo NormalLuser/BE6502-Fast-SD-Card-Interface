@@ -61,9 +61,9 @@ So I created some unrolled routines and always read 256 bytes after each frame a
 This allows hard-coded routines to toss the CRC/pre-charge bytes after each 512 bytes read.
 Since I don’t need to do anything with these CRC bytes I can use the full speed of this hardware by cycle counting:
 
-;  LDA (VIA_PORTA_Ind) ; 5 cycles byte 1
+  LDA (VIA_PORTA_Ind) ; 5 cycles byte 1
 
-;  LDA (DummyZP)       ; 5 cycles delay for Pulse Generator circuit to shift out pulse x8 and reset.
+  LDA (DummyZP)       ; 5 cycles delay for Pulse Generator circuit to shift out pulse x8 and reset.
 
 Taking only 10 CPU cycles for each byte. 8 to shift the byte and 2 to reset the Pulse Generator.
 
