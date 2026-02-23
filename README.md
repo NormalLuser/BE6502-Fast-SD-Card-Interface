@@ -1,5 +1,6 @@
 # BE6502-Fast-SD-Card-Interface
 A couple of shift registers from the PS/2 keyboard interface and unused gates from the Worlds Worst Video Card interface are wired up to allow very fast SD card data transfers on a Ben Eater 6502 breadboard computer.
+4,000 + lines of hand-coded 65C02 Assembly stream 20 fps full 256 color video to the screen while a 4KBs 1 bit audio stream plays out the 6522 VIA serial port with a IRQ driven routine.
 
 Click below to see it in action!
 
